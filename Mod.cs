@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Colossal.IO.AssetDatabase;
 using Colossal.Logging;
@@ -12,7 +11,6 @@ using Game.Modding;
 using Game.SceneFlow;
 using Game.Settings;
 using SimpleModCheckerPlus.Systems;
-using StarQ.Shared.Extensions;
 using Unity.Entities;
 
 namespace SimpleModCheckerPlus
@@ -45,9 +43,11 @@ namespace SimpleModCheckerPlus
             LogHelper.Init(Id, log);
             LocaleHelper.Init(Id, GetReplacements);
 
-            foreach (var item in new LocaleHelper($"{Id}.Locale.json").GetAvailableLanguages())
+            //foreach (var item in new LocaleHelper($"{Id}.Locale.json").GetAvailableLanguages())
+            // GameManager.instance.localizationManager.AddSource(item.LocaleId, item);
+            foreach (var (localeId, source) in new LocaleHelper($"{Id}.Locale.json").GetAvailableLanguages())
             {
-                GameManager.instance.localizationManager.AddSource(item.LocaleId, item);
+                GameManager.instance.localizationManager.AddSource(localeId, source);
             }
 
             GameManager.instance.localizationManager.onActiveDictionaryChanged +=
