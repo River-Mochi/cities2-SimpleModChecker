@@ -28,6 +28,28 @@ namespace SimpleModCheckerPlus.Systems
         public static Dictionary<string, Dictionary<string, string>> ManifestData = new();
         public static List<string> backupsToCheck = new();
         public static string translateKey = $"{Mod.Id}.Verify";
+
+        // Fallback: if Translate returns a raw key (locale missing, English default)
+        private static string T(string key, string fallback)
+        {
+            try
+            {
+                var s = LocaleHelper.Translate(key);
+                // If shim returns the key itself when missing, detect that:
+                if (string.IsNullOrEmpty(s) || s.StartsWith($"{Mod.Id}."))
+                    return fallback;
+                return s;
+            }
+            catch
+            {
+                return fallback;
+            }
+        }
+
+
+
+
+
         public static LocalizedString VerificationResultText => GetText();
 
         public static LocalizedString GetText()
