@@ -669,7 +669,7 @@ namespace SimpleModCheckerPlus.Systems
                 filePath = AddLongPathPrefix(filePath);
                 using var sha256 = SHA256.Create();
 
-                const int BufferSize = 1 << 20; // 1 MiB reads reduce syscall overhead
+                const int BufferSize = 1 << 20; // larger 1 MiB reads: fewer I/O calls
                 using var stream = new FileStream(
                     filePath,
                     FileMode.Open,
