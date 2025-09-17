@@ -71,6 +71,16 @@ namespace SimpleModCheckerPlus
         public const string ModListTab = "ModListTab";
         public const string VerifyTab = "VerifyTab";
 
+        // ----- Plain English labels for Verify tab (local-only shim) -----
+        public static Game.UI.Localization.LocalizedString VerifyAllModsLabel
+            => Game.UI.Localization.LocalizedString.Value("Verify All Mods");
+        public static Game.UI.Localization.LocalizedString VerifySelectedModLabel
+            => Game.UI.Localization.LocalizedString.Value("Verify Selected Mod");
+        public static Game.UI.Localization.LocalizedString ModSelectLabel
+            => Game.UI.Localization.LocalizedString.Value("Select Mod for Verification");
+        // ----- end shim labels -----
+
+
         //public const string ModListGroup = "Loaded Mods";
         public const string ModsListSortGroup = "ModsListSortGroup";
         public const string CodeModsGroup = "CodeModsGroup";
@@ -305,6 +315,7 @@ namespace SimpleModCheckerPlus
         [SettingsUIValueVersion(typeof(Setting), nameof(ModFolderListVersion))]
         [SettingsUISection(VerifyTab, ModVerifyGroup)]
         [SettingsUIDisableByCondition(typeof(Setting), nameof(ReadyForVerify))]
+        [SettingsUIDisplayName(typeof(Setting), nameof(ModSelectLabel))]
         public string ModFolderDropdown { get; set; } = string.Empty;
 
         [SettingsUIHidden]
@@ -314,6 +325,7 @@ namespace SimpleModCheckerPlus
         [SettingsUIButtonGroup("VerifyMod")]
         [SettingsUISection(VerifyTab, ModVerifyGroup)]
         [SettingsUIDisableByCondition(typeof(Setting), nameof(ReadyForVerify))]
+        [SettingsUIDisplayName(typeof(Setting), nameof(VerifyAllModsLabel))]
         public bool VerifyMods
         {
             set { Task.Run(() => ModVerifier.VerifyMods()); }
@@ -322,6 +334,8 @@ namespace SimpleModCheckerPlus
         [SettingsUIButtonGroup("VerifyMod")]
         [SettingsUISection(VerifyTab, ModVerifyGroup)]
         [SettingsUIDisableByCondition(typeof(Setting), nameof(ReadyForVerifySelected))]
+        [SettingsUIDisplayName(typeof(Setting), nameof(VerifySelectedModLabel))]
+
         public bool VerifyModSelected
         {
             set { Task.Run(() => ModVerifier.VerifyMods(ModFolderDropdown)); }

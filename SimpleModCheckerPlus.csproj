@@ -1,117 +1,129 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Configurations>Debug;Release</Configurations>
-    <AssemblyName>SimpleModCheckerPlus</AssemblyName>
-    <AssemblyTitle>Simple Mod Checker Plus</AssemblyTitle>
-    <Authors>StarQ</Authors>
-    <Version>3.6.0</Version>
-    <!-- The file where mod information which is required for publishing mod on PDX mods are stored -->
-    <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Configurations>Debug;Release</Configurations>
+		<AssemblyName>SimpleModCheckerPlus</AssemblyName>
+		<AssemblyTitle>Simple Mod Checker Plus</AssemblyTitle>
+		<Authors>StarQ</Authors>
+		<Version>3.6.0</Version>
+		<!-- The file where mod information which is required for publishing mod on PDX mods are stored -->
+		<PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
+	</PropertyGroup>
 
-  <!-- Imports must be after PropertyGroup block -->
-  <Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.props" />
-  <Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.targets" />
-  <Import
-    Project="..\..\ModsPersonal\StarQ.Shared\StarQ.Shared.projitems"
-    Label="Shared"
-    Condition="Exists('..\..\ModsPersonal\StarQ.Shared\StarQ.Shared.projitems')" />
+	<!-- Imports must be after PropertyGroup block -->
+	<Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.props" />
+	<Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.targets" />
+	<Import
+	  Project="..\..\ModsPersonal\StarQ.Shared\StarQ.Shared.projitems"
+	  Label="Shared"
+	  Condition="Exists('..\..\ModsPersonal\StarQ.Shared\StarQ.Shared.projitems')" />
 
-  <ItemGroup>
-    <Reference Include="Colossal.AssetPipeline">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.Core">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.IO.AssetDatabase">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.Localization">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.Logging">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.PSI.Common">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.PSI.PdxSdk">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Colossal.UI.Binding">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Game">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="PDX.SDK">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Unity.Collections">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Unity.Entities">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.VirtualTexturingModule">
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="Colossal.AssetPipeline">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Core">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.IO.AssetDatabase">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Localization">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Logging">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.PSI.Common">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.PSI.PdxSdk">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.UI.Binding">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Game">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="PDX.SDK">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Collections">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Entities">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.Core.Runtime">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.AudioModule">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.VirtualTexturingModule">
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Update="System">
-      <Private>false</Private>
-    </Reference>
-    <Reference Update="System.Core">
-      <Private>false</Private>
-    </Reference>
-    <Reference Update="System.Data">
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Update="System">
+			<Private>false</Private>
+		</Reference>
+		<Reference Update="System.Core">
+			<Private>false</Private>
+		</Reference>
+		<Reference Update="System.Data">
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="$(ModPropsFile)" Link="Properties\Mod.props" />
-    <None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="$(ModPropsFile)" Link="Properties\Mod.props" />
+		<None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
+	</ItemGroup>
 
-  <!-- Copy extra files (Resources/**) into the deployed mod folder -->
-  <Target Name="GetAdditionalFiles" AfterTargets="DeployWIP">
-    <ItemGroup>
-      <AdditionalFilesToDeploy Include="Resources\**\*.*" />
-    </ItemGroup>
-    <Copy
-      SourceFiles="@(AdditionalFilesToDeploy)"
-      DestinationFiles="@(AdditionalFilesToDeploy->'$(DeployDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
+	<!-- Copy extra files (Resources/**) into the deployed mod folder -->
+	<Target Name="GetAdditionalFiles" AfterTargets="DeployWIP">
+		<ItemGroup>
+			<AdditionalFilesToDeploy Include="Resources\**\*.*" />
+		</ItemGroup>
+		<Copy
+		  SourceFiles="@(AdditionalFilesToDeploy)"
+		  DestinationFiles="@(AdditionalFilesToDeploy->'$(DeployDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+	</Target>
 
-  <!-- Embed locale so UI strings resolve without shipping loose files -->
-  <ItemGroup>
-    <EmbeddedResource Include="Locale.json" />
-    <EmbeddedResource Include="Locale\*.json" />
-    <Compile Remove="Extensions\**" />
-    <EmbeddedResource Remove="Extensions\**" />
-    <None Remove="Extensions\**" />
-    <None Remove="Locale.json" />
-  </ItemGroup>
+	<!-- Upstream locale embeds (keep as-is) -->
+	<ItemGroup>
+		<EmbeddedResource Include="Locale.json" />
+		<EmbeddedResource Include="Locale\*.json" />
+		<Compile Remove="Extensions\**" />
+		<EmbeddedResource Remove="Extensions\**" />
+		<None Remove="Extensions\**" />
+		<None Remove="Locale.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Locale\" />
-  </ItemGroup>
+	<!-- Copy shim locale as a loose file (avoid CS1508) -->
+	<ItemGroup>
+		<None Include="SimpleModCheckerPlus.Locale.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<Target Name="CopyLocale" AfterTargets="DeployWIP">
+		<Copy SourceFiles="SimpleModCheckerPlus.Locale.json"
+			  DestinationFiles="$(DeployDir)\SimpleModCheckerPlus.Locale.json" />
+	</Target>
+
+	<ItemGroup>
+		<Folder Include="Locale\" />
+	</ItemGroup>
 </Project>
